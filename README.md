@@ -1,4 +1,4 @@
-# Pat Tracket App
+# Pet Tracker App
 
 A new Flutter project.
 
