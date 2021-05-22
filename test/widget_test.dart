@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:dashboard_flutter_01/main.dart';
+import 'package:petTracker/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -28,7 +28,3 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 }
-
-
-
-
