@@ -4,6 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/homePage/components/sidebar.dart';
 import 'package:petTracker/main.dart';
+import 'dashboard.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
@@ -17,10 +18,8 @@ class Body extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add_alert),
             onPressed: (){
-
             },
           ),
-
       ],),
 
       bottomNavigationBar: BottomNavigationBar(
@@ -35,8 +34,27 @@ class Body extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.settings),title: Text('Settings'),backgroundColor: Color(0xFFD57B49)),
         ],
       ),
+
+      body: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 50,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 14, right: 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GridDashboard()
+        ],
+      ),
+
     );
-
-
   }
 }
