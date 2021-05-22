@@ -1,85 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:petTracker/Screens/homePage/homee_page.dart';
 import 'package:petTracker/main.dart';
 //TODO düzenlenecek
 class SideBar extends StatelessWidget {
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        size: 26,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontFamily: 'RobotoCondensed',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      onTap: tapHandler,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
 
+      child: Column(
 
-      child: ListView(
-        padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Color(0xFFD57B49),
-            ),
-            child: Text('Menu'),
-          ),
 
           Container(
 
-             color: Color(0xFFD57B49),
-            child: ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile',),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
+            height: 80,
+            width: double.infinity,
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.centerLeft,
+            color:  Color(0xFFF3C186),
+            child: Text(
+              '           Menu',
+              style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 30,
+                  color: Theme.of(context).primaryColor),
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.calendar_today_outlined),
-            title: Text('Calendar'),
-            onTap: () {
-              //TODO
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-            onTap: () {
-              //TODO
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.wysiwyg),
-            title: Text('News/Blog'),
-            onTap: () {
-              //TODO
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () {
-              //TODO
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
+          SizedBox(
 
+            height: 10,
+          ),
+          buildListTile('Home', Icons.home, () {
 
-    ],
+          }),
+          buildListTile('Profile',  Icons.person, () {
+
+          }),
+          buildListTile('Calendar', Icons.calendar_today_outlined, () {
+
+          }),
+          buildListTile('News', Icons.wysiwyg, () {
+
+          }),
+          buildListTile('Settings', Icons.settings, () {
+
+          }),
+
+        ],
       ),
-
     );
-  }
-}
+  }}

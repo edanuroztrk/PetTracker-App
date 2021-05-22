@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petTracker/constants.dart';
 
-
 class TextFieldContainer extends StatelessWidget {
   final Widget child;
   const TextFieldContainer({
