@@ -4,16 +4,20 @@ Widget createDrawerHeader() {
   return DrawerHeader(
       margin: EdgeInsets.zero,
       padding: EdgeInsets.zero,
+      decoration: BoxDecoration(
+        color: Color(0xFFE9651F),
+      ),
 
 
       child: Stack(children: <Widget>[
-        Positioned(
-            bottom: 12.0,
-            left: 16.0,
-            child: Text("Welcome to Flutter",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w500))),
-      ]));
+          Positioned(
+          bottom: 12.0,
+          left: 16.0,
+          child: Text("Menu",
+              style: TextStyle(
+                  fontFamily: "Patua",
+                  fontWeight: FontWeight.w800,
+                  fontSize: 40,
+                  color: Color(0xA602010E))),),
+          ]));
 }

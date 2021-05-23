@@ -12,7 +12,7 @@ class profileBody extends StatelessWidget {
         children: <Widget> [
           SizedBox(height: 16,),
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: <Widget>[
 
@@ -52,7 +52,7 @@ class petPicture extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(4.0),
         child: Container(
-          width: MediaQuery.of(context).size.width / 1.25  ,
+          width: MediaQuery.of(context).size.width / 1.20  ,
           height:  200,
           decoration: BoxDecoration(
             image: DecorationImage(

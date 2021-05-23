@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:petTracker/widgets/Body.dart';
 import 'package:petTracker/widgets/Header.dart';
 import 'package:petTracker/routes/SideBarRouter.dart';
-import 'package:flutter/material.dart';
-import 'package:petTracker/Screens/News/components/body.dart';
-import 'package:petTracker/Screens/PetProfile/components/body.dart';
-import 'package:petTracker/Screens/Settings/components/body.dart';
-import 'package:petTracker/Screens/homePage/components/body.dart';
-import 'Screens/Calendar/components/body.dart';
-import 'package:petTracker/SideBar.dart';
 
 class SideBar extends StatelessWidget {
   int _selectedPage;
