@@ -2,10 +2,12 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:petTracker/Screens/homePage/components/dashboard.dart';
 import 'package:petTracker/Screens/homePage/components/sidebar.dart';
 import 'package:petTracker/main.dart';
-import 'dashboard.dart';
 
+
+//TODO profile pet eklenecek
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
 
@@ -16,11 +18,15 @@ class Body extends StatelessWidget {
       appBar: AppBar(
           actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.add_alert),
+            icon: Icon(Icons.notifications,size: 30,),
             onPressed: (){
+
             },
           ),
+
       ],),
+
+
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -56,5 +62,6 @@ class Body extends StatelessWidget {
       ),
 
     );
+
   }
 }

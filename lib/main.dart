@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: mainColor,
+        canvasColor: Color(0xFFF3C186),
+
       ),
       home: WelcomeScreen(),
     );

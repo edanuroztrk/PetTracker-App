@@ -41,7 +41,7 @@ class GridDashboard extends StatelessWidget {
           children: myList.map((data) {
             return Container(
               decoration: BoxDecoration(
-                  color: Color(color), borderRadius: BorderRadius.circular(5)),
+                  color: Color(0xFFEE7C13), borderRadius: BorderRadius.circular(5)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -54,7 +54,7 @@ class GridDashboard extends StatelessWidget {
                   ),
                   Text(
                     data.title,
-                    style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600, fontFamily: "Patua"),
+                    style: TextStyle(color:Color(0xDA02010E) , fontSize: 25, fontWeight: FontWeight.w600, fontFamily: "Patua"),
                   ),
                   SizedBox(
                     height: 8,

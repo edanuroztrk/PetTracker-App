@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/Login/components/background.dart';
 import 'package:petTracker/Screens/Signup/signup_screen.dart';
-import 'package:petTracker/Screens/homePage/homee_page.dart';
+import 'package:petTracker/Screens/homePage/home_page.dart';
 import 'package:petTracker/components/already_have_an_account_acheck.dart';
 import 'package:petTracker/components/rounded_button.dart';
 import 'package:petTracker/components/rounded_input_field.dart';

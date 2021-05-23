@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petTracker/Screens/homePage/homee_page.dart';
+import 'package:petTracker/Screens/homePage/home_page.dart';
 import 'package:petTracker/main.dart';
 //TODO düzenlenecek
 class SideBar extends StatelessWidget {
@@ -7,14 +7,16 @@ class SideBar extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
+        color : Color(0xFFDB410C),
         size: 26,
       ),
       title: Text(
         title,
         style: TextStyle(
-          fontFamily: 'RobotoCondensed',
+          color:  Color(0xD002010E),
+          fontFamily: "Patua",
           fontSize: 24,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
         ),
       ),
       onTap: tapHandler,
@@ -35,13 +37,14 @@ class SideBar extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
-            color:  Color(0xFFF3C186),
+            color:  Color(0xFFE9651F),
             child: Text(
               '           Menu',
               style: TextStyle(
-                  fontWeight: FontWeight.w900,
+                fontFamily: "Patua",
+                  fontWeight: FontWeight.w800,
                   fontSize: 30,
-                  color: Theme.of(context).primaryColor),
+                  color: Color(0xD002010E)),
             ),
           ),
           SizedBox(
