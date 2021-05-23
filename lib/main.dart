@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/Calendar/calendar_page.dart';
 import 'package:petTracker/Screens/HomePage/home_page.dart';
@@ -7,8 +8,13 @@ import 'package:petTracker/Screens/Settings/settings_page.dart';
 import 'package:petTracker/Screens/Welcome/welcome_screen.dart';
 import 'package:petTracker/constants.dart';
 import 'package:petTracker/routes/SideBarRouter.dart';
+import 'package:firebase_core/firebase_core.dart';
 const mainback = Color(0xf2c186);
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
