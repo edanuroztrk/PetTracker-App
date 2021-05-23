@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:petTracker/Screens/Calendar/calendar_page.dart';
+import 'package:petTracker/Screens/HomePage/home_page.dart';
+import 'package:petTracker/Screens/News/news_page.dart';
+import 'package:petTracker/Screens/PetProfile/pet_profile.dart';
+import 'package:petTracker/Screens/Settings/settings_page.dart';
 import 'package:petTracker/Screens/Welcome/welcome_screen.dart';
 import 'package:petTracker/constants.dart';
+import 'package:petTracker/routes/SideBarRouter.dart';
 const mainback = Color(0xf2c186);
 void main() => runApp(MyApp());
 
@@ -15,9 +21,17 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: mainColor,
         canvasColor: Color(0xFFF3C186),
-
+        fontFamily: "Patua"
       ),
+
       home: WelcomeScreen(),
+      routes:  {
+        pageRoutes.profile: (context) => PetProfile(),
+        pageRoutes.calendar: (context) => Calendar(),
+        pageRoutes.home: (context) => home_page(),
+        pageRoutes.settings: (context) => settings_page(),
+        pageRoutes.news: (context) => news_page(),
+      },
     );
   }
 }

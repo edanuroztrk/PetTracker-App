@@ -1,67 +1,31 @@
 
-
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/homePage/components/dashboard.dart';
-import 'package:petTracker/Screens/homePage/components/sidebar.dart';
-import 'package:petTracker/main.dart';
 
 
-//TODO profile pet eklenecek
-class Body extends StatelessWidget {
-  const Body({Key key}) : super(key: key);
+class homeBody extends StatelessWidget {
+  const homeBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: SideBar(),
-      appBar: AppBar(
-          actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.notifications,size: 30,),
-            onPressed: (){
-
-            },
+    return   Column(
+      children: <Widget>[
+        SizedBox(
+          height: 50,
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 14, right: 14),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+            ],
           ),
-
-      ],),
-
-
-
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFF3C186),
-         currentIndex: 2,
-        items:[
-          BottomNavigationBarItem(icon: Icon(Icons.person),title: Text('Profile'),backgroundColor: Color(0xFFD57B49)),
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_today_outlined),title: Text('Calendar'),backgroundColor: Color(0xFFD57B49)),
-          BottomNavigationBarItem(icon: Icon(Icons.home),title: Text('Home'),backgroundColor: Color(0xFFD57B49)),
-          BottomNavigationBarItem(icon: Icon(Icons.wysiwyg),title: Text('News'),backgroundColor: Color(0xFFD57B49)),
-          BottomNavigationBarItem(icon: Icon(Icons.settings),title: Text('Settings'),backgroundColor: Color(0xFFD57B49)),
-        ],
-      ),
-
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 50,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 14, right: 14),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          GridDashboard()
-        ],
-      ),
-
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        GridDashboard()
+      ],
     );
-
   }
 }

@@ -2,26 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 
-class Body extends StatelessWidget {
-  const Body({Key key}) : super(key: key);
+class profileBody extends StatelessWidget {
+  const profileBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        children: <Widget>[
-          petPicture(pic: 'assets/images/profile_cat.png'),
-          SizedBox(width: 16,),
-          Expanded(
+    return Column(
+      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget> [
+          SizedBox(height: 16,),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                children: <Widget>[
 
-              child: PetProfileHeader(petInfo: "Mimi"))
+                  petPicture(pic: 'assets/images/profile_cat.png'),
+                  SizedBox(width: 16,),
+
+
+                ],
+
+
+              ),
+              ),
+
+          SizedBox(height: 16,),
+          //pet name giver
+          PetProfileHeader(petInfo : "Mimi"),
+
 
 
         ],
 
 
-      ),
     );
   }
 }
@@ -39,7 +52,7 @@ class petPicture extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(4.0),
         child: Container(
-          width: MediaQuery.of(context).size.width /3 ,
+          width: MediaQuery.of(context).size.width / 1.25  ,
           height:  200,
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -62,14 +75,17 @@ class PetProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      //crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text("Mimi's Profile",
-            style: new TextStyle(
-                fontSize: 27.0,
-                color: Color(0xFFF56014),
-                fontWeight: FontWeight.w500
-                ,fontFamily: "Patua")),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Mimi's Profile",
+              style: new TextStyle(
+                  fontSize: 27.0,
+                  color: Color(0xFFF56014),
+                  fontWeight: FontWeight.w500
+                  ,fontFamily: "Patua")),
+        ),
 
         Text(
           'Bleed: Scottish',
