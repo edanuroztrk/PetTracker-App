@@ -5,7 +5,7 @@ Widget createDrawerHeader() {
       margin: EdgeInsets.zero,
       padding: EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: Color(0xFFE9651F),
+        color: Color(0xFFD57B49),
       ),
 
 
@@ -18,6 +18,6 @@ Widget createDrawerHeader() {
                   fontFamily: "Patua",
                   fontWeight: FontWeight.w800,
                   fontSize: 40,
-                  color: Color(0xA602010E))),),
+                  color: Color(0xFF321505))),),
           ]));
 }

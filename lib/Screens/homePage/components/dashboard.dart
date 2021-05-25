@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class GridDashboard extends StatelessWidget {
+
   Items item1 = new Items(
       title: "Calendar",
       img: "assets/images/calendar3.png");
@@ -33,15 +34,16 @@ class GridDashboard extends StatelessWidget {
     var color = 0xFFE35305;
     return Flexible(
       child: GridView.count(
-          childAspectRatio: 1.0,
-          padding: EdgeInsets.only(left: 12, right: 12),
+
+          childAspectRatio: 1.1,
+          padding: EdgeInsets.only(left: 31, right: 31),
           crossAxisCount: 2,
-          crossAxisSpacing: 14,
-          mainAxisSpacing: 14,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
           children: myList.map((data) {
             return Container(
               decoration: BoxDecoration(
-                  color: Color(0xFFEE7C13), borderRadius: BorderRadius.circular(5)),
+                  color: Color(0xFFD57B49), borderRadius: BorderRadius.circular(5)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -54,7 +56,7 @@ class GridDashboard extends StatelessWidget {
                   ),
                   Text(
                     data.title,
-                    style: TextStyle(color:Color(0xDA02010E) , fontSize: 25, fontWeight: FontWeight.w600, fontFamily: "Patua"),
+                    style: TextStyle(color:Color(0xFF321505) , fontSize: 25, fontWeight: FontWeight.w600, fontFamily: "Patua"),
                   ),
                   SizedBox(
                     height: 8,
