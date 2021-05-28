@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/Calendar/calendar_page.dart';
+import 'package:petTracker/Screens/FoodTracker/foodtracker_page.dart';
 import 'package:petTracker/Screens/PetProfile/pet_profile.dart';
 import 'package:petTracker/Screens/Settings/settings_page.dart';
 import 'package:petTracker/Screens/News/news_page.dart';
@@ -21,7 +22,7 @@ class GridDashboard extends StatelessWidget {
   Items item3 = new Items(
     title: "Food Tracker",
     img: "assets/images/pet-house.png",
-    page: Calendar(),
+    page: foodtracker_page(),
   );
   Items item4 = new Items(
     title: "Blog",
