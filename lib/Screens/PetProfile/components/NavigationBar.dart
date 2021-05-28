@@ -33,7 +33,6 @@ class _NavigationBarState extends State<NavigationBar > {
   void _onItemTapped(int index) {
     setState(() {
       _selectedPage = index;
-
     });
   }
 
@@ -43,7 +42,10 @@ class _NavigationBarState extends State<NavigationBar > {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: ( _widgetOptions.elementAt(_selectedPage)),
+      body:
+                (_widgetOptions.elementAt(_selectedPage)),
+
+
       drawer: SideBar(),
       appBar: AppBar(
         actions: <Widget>[

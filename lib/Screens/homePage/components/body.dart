@@ -11,16 +11,18 @@ class homeBody extends StatelessWidget {
     return   Column(
       children: <Widget>[
         SizedBox(
-          height: 50,
+          height:16 ,
         ),
-        Padding(
-          padding: EdgeInsets.only(left: 14, right: 14),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-            ],
+
+          Padding(
+            padding: EdgeInsets.only(left: 14, right: 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+              ],
+            ),
           ),
-        ),
+
         SizedBox(
           height: 10,
         ),

@@ -18,8 +18,6 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar > {
 
-
-
   static const List<Widget> _widgetOptions = <Widget>[
     profileBody(),
     calendarBody(),
@@ -78,7 +76,8 @@ class _NavigationBarState extends State<NavigationBar > {
         ],
       ),
 
-      body: ( _widgetOptions.elementAt(_selectedPage)),
+      body:
+          (_widgetOptions.elementAt(_selectedPage)) ,
 
 
     );

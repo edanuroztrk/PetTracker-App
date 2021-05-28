@@ -72,7 +72,7 @@ class GridDashboard extends StatelessWidget {
                   ),
                   Text(
                     data.title,
-                    style: TextStyle(color:Color(0xFF321505) , fontSize: 25, fontWeight: FontWeight.w600, fontFamily: "Patua"),
+                    style: TextStyle(color:Color(0xFF321505) , fontSize: 23, fontWeight: FontWeight.w600, fontFamily: "Patua"),
                   ),
                   SizedBox(
                     height: 8,
