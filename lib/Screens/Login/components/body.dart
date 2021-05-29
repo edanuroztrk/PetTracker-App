@@ -7,13 +7,16 @@ import 'package:petTracker/components/rounded_button.dart';
 import 'package:petTracker/components/rounded_input_field.dart';
 import 'package:petTracker/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:petTracker/components/auth.dart';
 class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
+
+
+
 
   @override
+  String e_maill ;
+  String passwordd;
+  AuthService _authService = AuthService();
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Background(
@@ -32,19 +35,25 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
               hintText: "Your Email",
-              onChanged: (value) {},
+              onChanged: (value) {
+                e_maill=value;
+              },
             ),
             RoundedPasswordField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                passwordd=value;
+              },
             ),
             RoundedButton(
               text: "LOGIN",
 
               press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => home_page()),
-                  );
+                _authService.signIn(e_maill, passwordd).then((value) {
+                  return
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => home_page())
+                    );
+                });
               },
             ),
             SizedBox(height: size.height * 0.03),
