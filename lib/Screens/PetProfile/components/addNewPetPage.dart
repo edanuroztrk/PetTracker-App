@@ -53,11 +53,15 @@ class _addNewPetPage extends State<addNewPetPage> {
     String fileName = Path.basename(_imageFile.path);
     Reference firebaseStorageRef =
         FirebaseStorage.instance.ref().child('defaults/$fileName');
+
     UploadTask uploadTask = firebaseStorageRef.putFile(_imageFile);
+
     TaskSnapshot taskSnapshot = await uploadTask;
     taskSnapshot.ref.getDownloadURL().then(
           (value) => _imageURL = value,
         );
+
+
   }
 
   @override
@@ -185,7 +189,14 @@ class _addNewPetPage extends State<addNewPetPage> {
                       onPressed: () {
                         setState(() {
                         nameTextController.text.isEmpty ? _validateName = true : _validateName = false;
+                        if(_imageURL == null && selectedType.name.contains('Cat')){
+                          _imageURL = "https://firebasestorage.googleapis.com/v0/b/pet-tracker-a62f2.appspot.com/o/default%2Fprofile_cat.png?alt=media&token=61eabf36-5cbb-47dc-ab82-8e80ac553220";
+                        }
+                        if(_imageURL == null && selectedType.name.contains('Dog')){
+                          _imageURL = "https://firebasestorage.googleapis.com/v0/b/pet-tracker-a62f2.appspot.com/o/default%2Fprofile_dog.png?alt=media&token=fad51eac-73bf-46af-8a54-4de37e8f54a9";
+                        }
                          });
+
 
                         if (_formKey.currentState.validate() & _validateName == false) {
                           dbRef.doc().set({
