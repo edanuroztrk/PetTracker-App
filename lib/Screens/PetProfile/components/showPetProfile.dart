@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; // For Image Picker
@@ -19,17 +20,12 @@ class updatePetProfile extends StatefulWidget {
 }
 
 class _updatePetProfile extends State<updatePetProfile> {
-  final _formKey = GlobalKey<FormState>();
-
-
 
   File _imageFile;
-
-
   String _imageURL ;
   final picker = ImagePicker();
 
-
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future pickImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -51,29 +47,35 @@ class _updatePetProfile extends State<updatePetProfile> {
         );
   }
 
+
+
   @override
    Widget build(BuildContext context)  {
-    var dbRef = FirebaseFirestore.instance
-        .collection("users")
-        .doc("susudeneme")
+    final User user = auth.currentUser;
+    final uid = user.uid;
+    Stream<DocumentSnapshot> dbRef = FirebaseFirestore.instance
+        .collection("Person")
+        .doc(uid)
         .collection("pets").doc(widget.docPath).snapshots();
 
-
-
-    TextEditingController ageTextController;
+    String imageAlt;
     TextEditingController nameTextController;
+    TextEditingController ageTextController;
     TextEditingController breedTextController;
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: StreamBuilder(
-          stream: dbRef,
-          builder: (BuildContext context,AsyncSnapshot<DocumentSnapshot> snapshot) {
-            var snapshotData = snapshot.data;
-            nameTextController= TextEditingController(text: snapshotData["name"]);
-            ageTextController= TextEditingController(text: snapshotData["age"]);
-            breedTextController= TextEditingController(text: snapshotData["breed"]);
-            String imageAlt = snapshotData["image"];
+          stream:  dbRef,
+          builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+            if(snapshot.hasData){
+                  var snapshotData = snapshot.data;
+                   nameTextController= TextEditingController(text: snapshotData['name']);
+                   ageTextController= TextEditingController(text: snapshotData['age']);
+                   breedTextController= TextEditingController(text: snapshotData["breed"]);
+                  imageAlt = snapshotData["image"];// your code here
+              print(snapshotData["name"]);}
            return new Stack(
               children: <Widget>[
                 Container(
@@ -169,12 +171,14 @@ class _updatePetProfile extends State<updatePetProfile> {
                     Flexible(
                         child: RaisedButton(
                             onPressed: () {
-                              if(_imageURL == null){
+
                                 setState(() {
-                                  _imageURL = imageAlt;
+                                  if(_imageURL == null) {
+                                    _imageURL = imageAlt;
+                                  }
                                 });
-                              }
-                              FirebaseFirestore.instance.collection("users").doc("susudeneme").collection("pets")
+
+                              FirebaseFirestore.instance.collection("Person").doc(uid).collection("pets")
                               .doc(widget.docPath)
                               .update({
                                 "name": nameTextController.text,

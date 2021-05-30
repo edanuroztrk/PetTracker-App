@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; // For Image Picker
@@ -16,6 +17,8 @@ class addNewPetPage extends StatefulWidget {
 }
 
 class _addNewPetPage extends State<addNewPetPage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   final _formKey = GlobalKey<FormState>();
   final ageTextController = TextEditingController();
   final nameTextController = TextEditingController();
@@ -28,10 +31,6 @@ class _addNewPetPage extends State<addNewPetPage> {
   Item selectedType;
   //TODO db islemi here
   //to add pet to the database- it should be refactored after auth completed.
-  final dbRef = FirebaseFirestore.instance
-      .collection("users")
-      .doc("susudeneme")
-      .collection("pets");
 
   List<Item> petTypes = <Item>[
     const Item('Cat',Icon(Icons.pets,color:  const Color(0xEB7C311B),),),
@@ -66,6 +65,13 @@ class _addNewPetPage extends State<addNewPetPage> {
 
   @override
   Widget build(BuildContext context) {
+    final User user = auth.currentUser;
+    final uid = user.uid;
+    final dbRef = FirebaseFirestore.instance
+        .collection("Person")
+        .doc(uid)
+        .collection("pets");
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(

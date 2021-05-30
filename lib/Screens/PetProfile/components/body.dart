@@ -1,17 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:petTracker/Screens/PetProfile/components/addNewPetPage.dart';
 import 'package:petTracker/Screens/PetProfile/components/showPetProfile.dart';
-
+import 'package:petTracker/components/auth.dart';
 //TODO db güncellemesi gelene kadar DONE
 //DONEEEEEEEEEEEEEEEEEE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 class profileBody extends StatelessWidget {
+
   const profileBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return new SingleChildScrollView(
       child: Column(
         children: [
@@ -39,15 +42,17 @@ class profileBody extends StatelessWidget {
   }
 
   Widget listOfPets(BuildContext context) {
-
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User user = auth.currentUser;
+    final uid = user.uid;
     return Container(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             StreamBuilder<QuerySnapshot>(
               stream: Firestore.instance
-                  .collection('users')
-                  .doc("susudeneme")
+                  .collection('Person')
+                  .doc(uid)
                   .collection("pets")
                   .snapshots(),
               builder: (BuildContext context,
