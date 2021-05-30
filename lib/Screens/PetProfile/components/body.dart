@@ -39,6 +39,7 @@ class profileBody extends StatelessWidget {
   }
 
   Widget listOfPets(BuildContext context) {
+
     return Container(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -51,8 +52,7 @@ class profileBody extends StatelessWidget {
                   .snapshots(),
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
-
-                if (!snapshot.hasData){
+                if (!snapshot.hasData) {
                   print('test phrase');
                   return Text("Loading.....");
                 }
@@ -68,7 +68,6 @@ class profileBody extends StatelessWidget {
                       children: snapshot.data.documents
                           .map((DocumentSnapshot document) {
                         return new Stack(
-
                           children: [
                             InkWell(
                               child: Container(
@@ -154,7 +153,8 @@ class profileBody extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) {
-                                    return updatePetProfile(docPath: document.id);
+                                    return updatePetProfile(
+                                        docPath: document.id);
                                   }),
                                 );
                               },

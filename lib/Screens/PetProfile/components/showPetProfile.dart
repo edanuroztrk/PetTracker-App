@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,10 +20,7 @@ class updatePetProfile extends StatefulWidget {
 
 class _updatePetProfile extends State<updatePetProfile> {
   final _formKey = GlobalKey<FormState>();
-  final dbRef = FirebaseFirestore.instance
-      .collection("users")
-      .doc("susudeneme")
-      .collection("pets");
+
 
 
   File _imageFile;
@@ -30,6 +28,8 @@ class _updatePetProfile extends State<updatePetProfile> {
 
   String _imageURL ;
   final picker = ImagePicker();
+
+
 
   Future pickImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -52,118 +52,131 @@ class _updatePetProfile extends State<updatePetProfile> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    var age,breed,name;
-    var db = FirebaseFirestore.instance.collection("users").doc("susudeneme")
-        .collection("pets").doc(widget.docPath).get().then((value){
-       age = value.data()["age"];
-       name =value.data()["name"] ;
-       breed =value.data()["breed"] ;
-      _imageURL = value.data()["image"];
-    });
+   Widget build(BuildContext context)  {
+    var dbRef = FirebaseFirestore.instance
+        .collection("users")
+        .doc("susudeneme")
+        .collection("pets").doc(widget.docPath).snapshots();
 
 
-    TextEditingController ageTextController = TextEditingController(text: age);
-    TextEditingController nameTextController = TextEditingController(text: name);
-    TextEditingController breedTextController = TextEditingController(text:breed );
+
+    TextEditingController ageTextController;
+    TextEditingController nameTextController;
+    TextEditingController breedTextController;
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Stack(
-            children: <Widget>[
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(height: 20.0),
-                    Stack(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Container(
-                            height: 120,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: _imageFile != null
-                                  ? Image.file(_imageFile)
-                                  : FlatButton(
-                                      color: Colors.deepOrangeAccent,
-                                      child: Icon(
-                                        Icons.add_a_photo,
-                                        size: 50,
-                                      ),
-                                      onPressed: pickImage,
-                                    ),
+        child: StreamBuilder(
+          stream: dbRef,
+          builder: (BuildContext context,AsyncSnapshot<DocumentSnapshot> snapshot) {
+            var snapshotData = snapshot.data;
+            nameTextController= TextEditingController(text: snapshotData["name"]);
+            ageTextController= TextEditingController(text: snapshotData["age"]);
+            breedTextController= TextEditingController(text: snapshotData["breed"]);
+            String imageAlt = snapshotData["image"];
+           return new Stack(
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 20.0),
+                      Stack(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Container(
+                              height: 120,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: _imageFile != null
+                                    ? Image.file(_imageFile)
+                                    : FlatButton(
+                                  color: Colors.deepOrangeAccent,
+                                  child: Icon(
+                                    Icons.add_a_photo,
+                                    size: 50,
+                                  ),
+                                  onPressed: pickImage,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Row(
-                children: [uploadImageButton(context)],
-              ),
-              Container(
-                margin:
-                    const EdgeInsets.only(top: 250, left: 20.0, right: 50.0),
-                child: Row(children: <Widget>[
-                  Flexible(
-                      child: TextField(
+                Row(
+                  children: [uploadImageButton(context)],
+                ),
+                Container(
+                  margin:
+                  const EdgeInsets.only(top: 250, left: 20.0, right: 50.0),
+                  child: Row(children: <Widget>[
+                    Flexible(
+                        child: TextField(
 
-                    decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepOrange),
-                        ),
-                        labelText: "Pet Name"),
-                    maxLines: 1,
-                    controller: nameTextController,
-                  ))
-                ]),
-              ),
-              Container(
-                margin:
-                    const EdgeInsets.only(top: 330, left: 20.0, right: 50.0),
-                child: Row(children: <Widget>[
-                  Flexible(
-                      child: TextField(
-                    decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepOrange),
-                        ),
-                        labelText: "Pet Breed"),
-                    maxLines: 1,
-                    controller: breedTextController,
-                  ))
-                ]),
-              ),
-              Container(
-                margin:
-                    const EdgeInsets.only(top: 410, left: 20.0, right: 50.0),
-                child: Row(children: <Widget>[
-                  Flexible(
-                      child: TextField(
-                    decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepOrange),
-                        ),
-                        labelText: "Pet Age"),
-                    maxLines: 1,
-                    controller: ageTextController,
-                  ))
-                ]),
-              ),
-              Container(
-                margin:
-                    const EdgeInsets.only(top: 490, left: 20.0, right: 50.0),
-                child: Row(children: <Widget>[
-                  Flexible(
-                      child: RaisedButton(
-                          onPressed: () {
-
-                              dbRef.doc(widget.docPath).update({
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.deepOrange),
+                              ),
+                              labelText: "Pet Name"),
+                          maxLines: 1,
+                          controller: nameTextController,
+                        ))
+                  ]),
+                ),
+                Container(
+                  margin:
+                  const EdgeInsets.only(top: 330, left: 20.0, right: 50.0),
+                  child: Row(children: <Widget>[
+                    Flexible(
+                        child: TextField(
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.deepOrange),
+                              ),
+                              labelText: "Pet Breed"),
+                          maxLines: 1,
+                          controller: breedTextController,
+                        ))
+                  ]),
+                ),
+                Container(
+                  margin:
+                  const EdgeInsets.only(top: 410, left: 20.0, right: 50.0),
+                  child: Row(children: <Widget>[
+                    Flexible(
+                        child: TextField(
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.deepOrange),
+                              ),
+                              labelText: "Pet Age"),
+                          maxLines: 1,
+                          controller: ageTextController,
+                        ))
+                  ]),
+                ),
+                Container(
+                  margin:
+                  const EdgeInsets.only(top: 490, left: 20.0, right: 50.0),
+                  child: Row(
+                    children: <Widget>[
+                    Flexible(
+                        child: RaisedButton(
+                            onPressed: () {
+                              if(_imageURL == null){
+                                setState(() {
+                                  _imageURL = imageAlt;
+                                });
+                              }
+                              FirebaseFirestore.instance.collection("users").doc("susudeneme").collection("pets")
+                              .doc(widget.docPath)
+                              .update({
                                 "name": nameTextController.text,
                                 "breed": breedTextController.text,
                                 "age": ageTextController.text,
@@ -172,26 +185,26 @@ class _updatePetProfile extends State<updatePetProfile> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                         content:
-                                            Text('Successfully Updated!')));
+                                        Text('Successfully Updated!')));
                                 ageTextController.clear();
                                 nameTextController.clear();
                                 breedTextController.clear();
                               });
-
-                          },
-                          child: Text("Update",
-                              style: TextStyle(
-                                fontFamily: "Patua",
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              )),
-                          color: Colors.deepOrange))
-                ]),
-              )
-            ],
-          ),
+                            },
+                            child: Text("Update",
+                                style: TextStyle(
+                                  fontFamily: "Patua",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                )),
+                            color: Colors.deepOrange))
+                  ],),
+                ),
+              ],
+            );
+          },
+            ),
         ),
-      ),
     );
   }
 
