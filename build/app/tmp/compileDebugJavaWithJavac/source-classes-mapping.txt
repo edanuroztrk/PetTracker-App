@@ -1,6 +1,0 @@
-com/example/pet_tracker_app/MainActivity.java
- com.example.pet_tracker_app.MainActivity
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/example/pet_tracker_app/BuildConfig.java
- com.example.pet_tracker_app.BuildConfig

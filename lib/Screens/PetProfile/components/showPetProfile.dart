@@ -1,13 +1,15 @@
 import 'dart:async';
-
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; // For Image Picker
 import 'package:path/path.dart' as Path;
+import 'package:petTracker/Screens/PetProfile/components/body.dart';
+import 'package:petTracker/Screens/PetProfile/components/loadingSplash.dart';
+import 'package:petTracker/Screens/PetProfile/pet_profile.dart';
+
 
 //TODO renkler düzenlenecegi icin ugrasmadım
 class updatePetProfile extends StatefulWidget {
@@ -19,13 +21,16 @@ class updatePetProfile extends StatefulWidget {
   _updatePetProfile createState() => _updatePetProfile();
 }
 
-class _updatePetProfile extends State<updatePetProfile> {
+class _updatePetProfile extends State<updatePetProfile>{
 
   File _imageFile;
   String _imageURL ;
   final picker = ImagePicker();
-
   final FirebaseAuth auth = FirebaseAuth.instance;
+
+
+
+
 
   Future pickImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -70,7 +75,7 @@ class _updatePetProfile extends State<updatePetProfile> {
           stream:  dbRef,
           builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
             if(snapshot.hasData){
-                  var snapshotData = snapshot.data;
+              var snapshotData = snapshot.data;
                    nameTextController= TextEditingController(text: snapshotData['name']);
                    ageTextController= TextEditingController(text: snapshotData['age']);
                    breedTextController= TextEditingController(text: snapshotData["breed"]);
@@ -178,7 +183,8 @@ class _updatePetProfile extends State<updatePetProfile> {
                                   }
                                 });
 
-                              FirebaseFirestore.instance.collection("Person").doc(uid).collection("pets")
+
+                                FirebaseFirestore.instance.collection("Person").doc(uid).collection("pets")
                               .doc(widget.docPath)
                               .update({
                                 "name": nameTextController.text,
@@ -193,7 +199,20 @@ class _updatePetProfile extends State<updatePetProfile> {
                                 ageTextController.clear();
                                 nameTextController.clear();
                                 breedTextController.clear();
-                              });
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return SplashScreen();
+                                  }),
+                                );
+
+                                });
+
+
+
+
+
+
                             },
                             child: Text("Update",
                                 style: TextStyle(

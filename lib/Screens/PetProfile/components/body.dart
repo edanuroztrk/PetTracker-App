@@ -59,13 +59,21 @@ class profileBody extends StatelessWidget {
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (!snapshot.hasData) {
                   print('test phrase');
-                  return Text("Loading.....");
+                  return CircularProgressIndicator(
+                    backgroundColor: Colors.deepOrange,
+                    valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                    strokeWidth: 7,
+                  );
                 }
                 if (snapshot.hasError)
                   return new Text('Error: ${snapshot.error}');
                 switch (snapshot.connectionState) {
                   case ConnectionState.waiting:
-                    return new Text('Loading...');
+                    return CircularProgressIndicator(
+                      backgroundColor: Colors.deepOrange,
+                      valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                      strokeWidth: 7,
+                    );
                   default:
                     return ListView(
                       shrinkWrap: true,
@@ -81,6 +89,7 @@ class profileBody extends StatelessWidget {
                                 height: 170.0,
                                 child: Column(
                                   children: [
+
                                     Card(
                                       color: Color(0xFFD57B49),
                                       child: Padding(

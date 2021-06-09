@@ -1,4 +1,0 @@
-#Sun May 23 00:21:41 GMT+03:00 2021
-base.0=C\:\\Users\\msi-nb\\Desktop\\pet_tracker_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
