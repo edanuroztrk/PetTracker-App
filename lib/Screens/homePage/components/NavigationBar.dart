@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/Calendar/components/body.dart';
 import 'package:petTracker/Screens/News/components/body.dart';
@@ -38,6 +39,7 @@ class _NavigationBarState extends State<NavigationBar > {
 //nothing to do in here
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
 
 
@@ -48,6 +50,7 @@ class _NavigationBarState extends State<NavigationBar > {
             icon: Icon(Icons.notifications,size: 30,),
             //Todo notification button aktif edilmeli
             onPressed: (){
+
 
             },
           ),
