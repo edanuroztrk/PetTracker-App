@@ -20,13 +20,15 @@ dependencies:
   firebase_image:
   image_picker:
   cloud_firestore:
-  firebase_storage: 5.2.0
+  firebase_storage:
   firebase_core :
   curved_navigation_bar:
   firebase_auth:
   firebase_messaging:
   flutter_local_notifications:
   splashscreen:
+  google_sign_in:
+  shared_preferences:
 
 
   flutter:

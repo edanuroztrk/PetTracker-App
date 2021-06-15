@@ -1,11 +1,12 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/Calendar/components/body.dart';
+import 'package:petTracker/Screens/HomePage/components/notificationsPage.dart';
 import 'package:petTracker/Screens/News/components/body.dart';
 import 'package:petTracker/Screens/PetProfile/components/body.dart';
 import 'package:petTracker/Screens/Settings/components/body.dart';
 import 'package:petTracker/Screens/homePage/components/body.dart';
 import 'package:petTracker/SideBar.dart';
+
 
 
 class NavigationBar extends StatefulWidget {
@@ -50,6 +51,10 @@ class _NavigationBarState extends State<NavigationBar > {
             icon: Icon(Icons.notifications,size: 30,),
             //Todo notification button aktif edilmeli
             onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => notificationsPage()),
+              );
 
 
             },

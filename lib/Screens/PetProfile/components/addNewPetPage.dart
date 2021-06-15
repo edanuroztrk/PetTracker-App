@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To F
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; // For Image Picker
 import 'package:path/path.dart' as Path;
+import 'package:petTracker/Screens/PetProfile/components/loadingSplash.dart';
 
 //DONE with logic !!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -222,6 +223,13 @@ class _addNewPetPage extends State<addNewPetPage> {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(onError)));
                           });
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return SplashScreen();
+                            }),
+                          );
                         }
 
                       },

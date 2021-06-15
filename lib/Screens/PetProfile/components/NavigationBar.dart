@@ -63,7 +63,7 @@ class _NavigationBarState extends State<NavigationBar > {
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFF3C186),
+        backgroundColor: Color(0xFFFDCE8B),
         currentIndex: _selectedPage,
         onTap: _onItemTapped,
         //elevation: 5,

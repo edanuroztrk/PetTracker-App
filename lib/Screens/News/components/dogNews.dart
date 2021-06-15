@@ -32,20 +32,24 @@ class _dogNewsState extends State<dogNews> {
                         AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
                         print('test phrase');
-                        return CircularProgressIndicator(
-                          backgroundColor: Colors.deepOrange,
-                          valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
-                          strokeWidth: 7,
+                        return Center(
+                          child: CircularProgressIndicator(
+                            backgroundColor: Colors.deepOrange,
+                            valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                            strokeWidth: 7,
+                          ),
                         );
                       }
                       if (snapshot.hasError)
                         return new Text('Error: ${snapshot.error}');
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
-                          return CircularProgressIndicator(
-                            backgroundColor: Colors.deepOrange,
-                            valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
-                            strokeWidth: 7,
+                          return Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.deepOrange,
+                              valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                              strokeWidth: 7,
+                            ),
                           );
                         default:
                           return ListView(
