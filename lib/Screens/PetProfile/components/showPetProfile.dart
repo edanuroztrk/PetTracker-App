@@ -6,9 +6,8 @@ import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To F
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; // For Image Picker
 import 'package:path/path.dart' as Path;
-import 'package:petTracker/Screens/PetProfile/components/body.dart';
 import 'package:petTracker/Screens/PetProfile/components/loadingSplash.dart';
-import 'package:petTracker/Screens/PetProfile/pet_profile.dart';
+
 
 
 //TODO renkler düzenlenecegi icin ugrasmadım

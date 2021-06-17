@@ -54,7 +54,7 @@ class GridDashboard extends StatelessWidget {
           mainAxisSpacing: 15,
           children: myList.map((data) {
             return RaisedButton(
-              color: Color(0xFFD57B49), //change this into another color
+              color: Color(0xff468aa4), //change this into another color
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> data.page));},
 
@@ -72,7 +72,7 @@ class GridDashboard extends StatelessWidget {
                   ),
                   Text(
                     data.title,
-                    style: TextStyle(color:Color(0xFF321505) , fontSize: 23, fontWeight: FontWeight.w600, fontFamily: "Patua"),
+                    style: TextStyle(color:Color(0xFF1F2421) , fontSize: 23, fontWeight: FontWeight.w600, fontFamily: "Patua"),
                   ),
                   SizedBox(
                     height: 8,
