@@ -29,7 +29,7 @@ dependencies:
   splashscreen:
   google_sign_in:
   shared_preferences:
-
+  table_calendar: ^2.3.3
 
   flutter:
     sdk: flutter
