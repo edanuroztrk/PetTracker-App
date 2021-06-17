@@ -6,6 +6,8 @@ import 'package:petTracker/Screens/Settings/components/body.dart';
 import 'package:petTracker/Screens/homePage/components/body.dart';
 import 'package:petTracker/SideBar.dart';
 
+import 'body.dart';
+
 
 class NavigationBar extends StatefulWidget {
   final int pageNumber;
