@@ -21,8 +21,8 @@ class Body extends StatelessWidget {
             Text(
               "PET TRACKER",
 
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: Color(
-                  0xFF521F1E),fontFamily: "Patua"),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color:
+              Color(0xFF1F2421),fontFamily: "Patua"),
             ),
             SizedBox(height: size.height * 0.02),
                 Container(
@@ -52,7 +52,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "SIGN UP",
               color: kPrimaryLightColor,
-              textColor: Colors.black,
+              textColor: Color(0xFF1F2421),
               press: () {
                 Navigator.push(
                   context,

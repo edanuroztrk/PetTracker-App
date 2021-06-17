@@ -23,7 +23,7 @@ class profileBody extends StatelessWidget {
             child: listOfPets(context),
           ),
           IconButton(
-            color: Color(0xFFDD8859),
+            color:  Color(0xff1d6682),
             alignment: Alignment.bottomCenter,
             iconSize: 50,
             icon: Icon(Icons.add_box),
@@ -60,8 +60,8 @@ class profileBody extends StatelessWidget {
                 if (!snapshot.hasData) {
                   print('test phrase');
                   return CircularProgressIndicator(
-                    backgroundColor: Colors.deepOrange,
-                    valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                    backgroundColor: Color(0xFF8fb4f3),
+                    valueColor: AlwaysStoppedAnimation(Color(0xFF8fb4f3)),
                     strokeWidth: 7,
                   );
                 }
@@ -70,8 +70,8 @@ class profileBody extends StatelessWidget {
                 switch (snapshot.connectionState) {
                   case ConnectionState.waiting:
                     return CircularProgressIndicator(
-                      backgroundColor: Colors.deepOrange,
-                      valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                      backgroundColor: Color(0xFF8fb4f3),
+                      valueColor: AlwaysStoppedAnimation(Color(0xFF8fb4f3)),
                       strokeWidth: 7,
                     );
                   default:
@@ -91,7 +91,7 @@ class profileBody extends StatelessWidget {
                                   children: [
 
                                     Card(
-                                      color: Color(0xFFD57B49),
+                                      color: Color(0xFF8fb4f3),
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                           top: 8,
@@ -119,7 +119,7 @@ class profileBody extends StatelessWidget {
                                                             FontWeight.w100,
                                                         fontSize: 20,
                                                         color:
-                                                            Color(0xFF321505),
+                                                        Color(0xFF1F2421),
                                                       )),
                                                 ],
                                               ),
@@ -135,7 +135,7 @@ class profileBody extends StatelessWidget {
                                                             FontWeight.w100,
                                                         fontSize: 20,
                                                         color:
-                                                            Color(0xFF321505),
+                                                        Color(0xFF1F2421),
                                                       )),
                                                 ],
                                               ),
@@ -152,7 +152,7 @@ class profileBody extends StatelessWidget {
                                                             FontWeight.w100,
                                                         fontSize: 20,
                                                         color:
-                                                            Color(0xFF321505),
+                                                        Color(0xFF1F2421),
                                                       )),
                                                 ],
                                               ),

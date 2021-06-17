@@ -98,7 +98,8 @@ class _updatePetProfile extends State<updatePetProfile>{
                                 child: _imageFile != null
                                     ? Image.file(_imageFile)
                                     : FlatButton(
-                                  color: Colors.deepOrangeAccent,
+
+                                  color: Color(0xFF8fb4f3),
                                   child: Icon(
                                     Icons.add_a_photo,
                                     size: 50,
@@ -126,7 +127,7 @@ class _updatePetProfile extends State<updatePetProfile>{
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Colors.deepOrange),
+                                    color: Color(0xFF8fb4f3)),
                               ),
                               labelText: "Pet Name"),
                           maxLines: 1,
@@ -143,7 +144,7 @@ class _updatePetProfile extends State<updatePetProfile>{
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Colors.deepOrange),
+                                    color: Color(0xFF8fb4f3)),
                               ),
                               labelText: "Pet Breed"),
                           maxLines: 1,
@@ -160,7 +161,7 @@ class _updatePetProfile extends State<updatePetProfile>{
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Colors.deepOrange),
+                                    color: Color(0xFF8fb4f3)),
                               ),
                               labelText: "Pet Age"),
                           maxLines: 1,
@@ -220,7 +221,7 @@ class _updatePetProfile extends State<updatePetProfile>{
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                 )),
-                            color: Colors.deepOrange))
+                            color: Color(0xFF8fb4f3)))
                   ],),
                 ),
               ],
@@ -239,7 +240,7 @@ class _updatePetProfile extends State<updatePetProfile>{
             padding: const EdgeInsets.symmetric(horizontal: 20),
             margin: const EdgeInsets.only(top: 170, left: 20.0, right: 20.0),
             decoration: BoxDecoration(
-                color: Colors.deepOrange,
+                color: Color(0xFF8fb4f3),
                 borderRadius: BorderRadius.circular(10.0)),
             child: FlatButton(
               onPressed: () => uploadImageToFirebase(context),

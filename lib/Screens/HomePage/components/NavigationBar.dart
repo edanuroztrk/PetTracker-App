@@ -66,21 +66,21 @@ class _NavigationBarState extends State<NavigationBar > {
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFF3C186),
+        backgroundColor: Color(0xff1d6682),
         currentIndex: _selectedPage,
         onTap: _onItemTapped,
         //elevation: 5,
         items:[
           BottomNavigationBarItem(
-              icon: Icon(Icons.person),title: Text('Profile'),backgroundColor: Color(0xFFD57B49)),
+              icon: Icon(Icons.person,color:Color(0xFF8fb4f3) ,),title: Text('Profile',style:TextStyle(color: Colors.white ))),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_outlined),title: Text('Calendar'),backgroundColor: Color(0xFFD57B49)),
+              icon: Icon(Icons.calendar_today_outlined,color: Color(0xFF8fb4f3)),title: Text('Calendar',style:TextStyle(color: Colors.white))),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),title: Text('Home'),backgroundColor: Color(0xFFD57B49)),
+              icon: Icon(Icons.home,color:Color(0xFF8fb4f3)),title: Text('Home',style:TextStyle(color: Colors.white))),
           BottomNavigationBarItem(
-              icon: Icon(Icons.wysiwyg),title: Text('News'),backgroundColor: Color(0xFFD57B49)),
+              icon: Icon(Icons.wysiwyg,color:Color(0xFF8fb4f3)),title: Text('News',style:TextStyle(color: Colors.white))),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings),title: Text('Settings'),backgroundColor: Color(0xFFD57B49)),
+              icon: Icon(Icons.settings,color:Color(0xFF8fb4f3)),title: Text('Settings',style:TextStyle(color: Colors.white))),
         ],
       ),
 

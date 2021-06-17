@@ -32,11 +32,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'pet tracker',
+      title: 'pet tracker',color: Color(0xff1d6682),
       theme: ThemeData(
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: mainColor,
-        canvasColor: Color(0xFFF3C186),
+        canvasColor: Color(0xFFEBFFFB),
         fontFamily: "Patua"
       ),
 
@@ -57,32 +57,4 @@ class _MyAppState extends State<MyApp> {
 
 
 
-// class MyApp extends StatefulWidget {
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'pet tracker',
-//       theme: ThemeData(
-//         primaryColor: kPrimaryColor,
-//         scaffoldBackgroundColor: mainColor,
-//         canvasColor: Color(0xFFF3C186),
-//         fontFamily: "Patua"
-//       ),
-//
-//       home: WelcomeScreen(),
-//       routes:  {
-//         pageRoutes.catPage: (context) => catNews(),
-//         pageRoutes.dogPage: (context) => dogNews(),
-//         pageRoutes.profile: (context) => PetProfile(),
-//         pageRoutes.calendar: (context) => Calendar(),
-//         pageRoutes.home: (context) => home_page(),
-//         pageRoutes.settings: (context) => settings_page(),
-//         pageRoutes.news: (context) => news_page(),
-//       },
-//     );
-//   }
-// }
+

@@ -34,8 +34,8 @@ class _addNewPetPage extends State<addNewPetPage> {
   //to add pet to the database- it should be refactored after auth completed.
 
   List<Item> petTypes = <Item>[
-    const Item('Cat',Icon(Icons.pets,color:  const Color(0xEB7C311B),),),
-    const Item('Dog',Icon(Icons.pets,color:  const Color(0xEB7C311B),)),
+    const Item('Cat',Icon(Icons.pets,color:  const Color(0xFF1F2421),),),
+    const Item('Dog',Icon(Icons.pets,color:  Color(0xFF1F2421),)),
 
   ];
 
@@ -95,7 +95,7 @@ class _addNewPetPage extends State<addNewPetPage> {
                                 child: _imageFile != null
                                     ? Image.file(_imageFile)
                                     : FlatButton(
-                                        color: Colors.deepOrangeAccent,
+                                        color:  Color(0xFF8fb4f3),
                                         child: Icon(
                                           Icons.add_a_photo,
                                           size: 50,
@@ -134,7 +134,7 @@ class _addNewPetPage extends State<addNewPetPage> {
                           SizedBox(width: 10,),
                           Text(
                             user.name,
-                            style:  TextStyle(color: Colors.black),
+                            style:  TextStyle(color: Color(0xFF1F2421)),
                           ),
                         ],
                       ),
@@ -149,7 +149,7 @@ class _addNewPetPage extends State<addNewPetPage> {
                       child: TextField(
                     decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepOrange),
+                          borderSide: BorderSide(color: Color(0xFF8fb4f3)),
                         ),
                         errorText: _validateName ? 'Please enter your pets name' : null,
                         labelText: "Pet Name"),
@@ -165,7 +165,7 @@ class _addNewPetPage extends State<addNewPetPage> {
                       child: TextField(
                     decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepOrange),
+                          borderSide: BorderSide(color: Color(0xFF8fb4f3)),
                         ),
                         labelText: "Pet Breed"),
                     maxLines: 1,
@@ -180,7 +180,7 @@ class _addNewPetPage extends State<addNewPetPage> {
                       child: TextField(
                     decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepOrange),
+                          borderSide: BorderSide(color:Color(0xFF8fb4f3)),
                         ),
                         labelText: "Pet Age"),
                     maxLines: 1,
@@ -239,7 +239,7 @@ class _addNewPetPage extends State<addNewPetPage> {
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               )),
-                          color: Colors.deepOrange))
+                          color: Color(0xFF8fb4f3)))
                 ]),
               ),
 
@@ -260,7 +260,7 @@ class _addNewPetPage extends State<addNewPetPage> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             margin: const EdgeInsets.only(top: 150, left: 20.0, right: 20.0),
             decoration: BoxDecoration(
-                color: Colors.deepOrange,
+                color: Color(0xFF8fb4f3),
                 borderRadius: BorderRadius.circular(10.0)),
             child: FlatButton(
               onPressed: () => uploadImageToFirebase(context),

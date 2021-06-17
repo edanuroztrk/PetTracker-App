@@ -28,8 +28,8 @@ class _prospectusBodyState extends State<prospectusBody> {
                     print('test phrase');
                     return Center(
                       child: CircularProgressIndicator(
-                        backgroundColor: Colors.deepOrange,
-                        valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                        backgroundColor: Color(0xff1d6682),
+                        valueColor: AlwaysStoppedAnimation(Color(0xff1d6682)),
                         strokeWidth: 7,
                       ),
                     );
@@ -40,8 +40,8 @@ class _prospectusBodyState extends State<prospectusBody> {
                     case ConnectionState.waiting:
                       return Center(
                         child: CircularProgressIndicator(
-                          backgroundColor: Colors.deepOrange,
-                          valueColor: AlwaysStoppedAnimation(Colors.deepOrangeAccent),
+                          backgroundColor: Color(0xff1d6682),
+                          valueColor: AlwaysStoppedAnimation(Color(0xff1d6682)),
                           strokeWidth: 7,
                         ),
                       );
@@ -62,7 +62,7 @@ class _prospectusBodyState extends State<prospectusBody> {
                                     children: [
 
                                       Card(
-                                        color: Color(0xFFFAF861),
+                                        color: Color(0xFF8fb4f3),
                                         child: Padding(
                                           padding: const EdgeInsets.only(
                                             top: 8,
@@ -80,7 +80,7 @@ class _prospectusBodyState extends State<prospectusBody> {
                                                        fontWeight:
                                                        FontWeight.w100,
                                                        fontSize: 20,
-                                                       color: Color(0xFF321505),
+                                                       color: Color(0xFF1F2421),
                                                         )),
 
                                                  Padding(
@@ -94,7 +94,7 @@ class _prospectusBodyState extends State<prospectusBody> {
                                                             FontWeight.w100,
                                                             fontSize: 20,
                                                             color: Color(
-                                                                0xFFAE5224),
+                                                                0xFFFFFFFF),
                                                           )),
                                                  ),
 
