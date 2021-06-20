@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petTracker/Screens/Calendar/components/body.dart';
+import 'package:petTracker/Screens/HomePage/components/notificationsPage.dart';
 import 'package:petTracker/Screens/News/components/body.dart';
 import 'package:petTracker/Screens/PetProfile/components/body.dart';
 import 'package:petTracker/Screens/Settings/components/body.dart';
@@ -47,10 +48,38 @@ class _NavigationBarState extends State<NavigationBar > {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.notifications,size: 30,),
-            //Todo notification button aktif edilmeli
+            icon: new Stack(
+              children: <Widget>[
+                new Icon(Icons.notifications),
+                new Positioned(
+                  right: 0,
+                  child: new Container(
+                    padding: EdgeInsets.all(1),
+                    decoration: new BoxDecoration(
+                      color: Color(0xFF4A9AFF),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    constraints: BoxConstraints(
+                      minWidth: 12,
+                      minHeight: 12,
+                    ),
+                    child: new Text(
+                      '!',
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 8,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                )
+              ],
+            ),
             onPressed: (){
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => notificationsPage()),
+              );
             },
           ),
 
