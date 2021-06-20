@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
             Text(
               "LOGIN",
               style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: Color(
-                  0xFF521F1E),fontFamily: "Patua"),
+                  0xFF1C2223),fontFamily: "Patua"),
 
             ),
             SizedBox(height: size.height * 0.03),

@@ -51,7 +51,7 @@ class _newsBody extends State<newsBody> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Card(
-                    color: Color(0xDFFFFFFF),
+                    color: Color(0xDFFF6000),
                     shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                     child: Container(
